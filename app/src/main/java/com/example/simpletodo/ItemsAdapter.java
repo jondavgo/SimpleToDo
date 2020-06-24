@@ -16,12 +16,17 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     public interface OnLongClickListener{
         void onItemLongClick(int pos);
     }
+    public interface OnClickListener{
+        void onItemClick(int pos);
+    }
     List<String> items;
     OnLongClickListener listener;
+    OnClickListener click;
 
-    public ItemsAdapter(List<String> i, OnLongClickListener l) {
+    public ItemsAdapter(List<String> i, OnLongClickListener l, OnClickListener c) {
         items = i;
         listener = l;
+        click = c;
     }
 
     @NonNull
@@ -60,6 +65,12 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         //update view inside view holder w/ data of item
         public void bind(String item) {
             tvItem.setText(item);
+            tvItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    click.onItemClick(getAdapterPosition());
+                }
+            });
             tvItem.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {

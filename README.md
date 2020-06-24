@@ -32,7 +32,7 @@ GIF created with [Kap](http://www.getkap.co).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+No difficult challenges came when making this app, but the experience was very insightful overall! Like learning how to import objects from Unity, the dynamic between the xml files and the java scripts felt natural and easy to understand. After hopping over the syntax hurdle, I was off to the races!
 
 ## License
 
